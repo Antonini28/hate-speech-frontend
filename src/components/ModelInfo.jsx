@@ -8,7 +8,7 @@ const METRICS = [
 const PIPELINE = [
   { step: '1', name: 'XLM-R + LoRA',  desc: 'Binary toxicity classifier (r=16, α=32)' },
   { step: '2', name: 'Threshold',      desc: 'Decision boundary at 0.55 probability' },
-  { step: '3', name: 'RL Policy',      desc: 'REINFORCE MLP → PASS / WARN / FLAG / REMOVE' },
+  { step: '3', name: 'RL Policy',      desc: 'REINFORCE MLP — PASS below 0.29, FLAG mid-band, REMOVE above 0.62' },
   { step: '4', name: 'RAG',            desc: 'FAISS k-NN from 76K exemplar knowledge base' },
 ]
 

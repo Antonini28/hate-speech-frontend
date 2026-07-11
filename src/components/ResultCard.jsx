@@ -43,7 +43,7 @@ function SimilarExample({ example, index }) {
   )
 }
 
-export default function ResultCard({ result }) {
+export default function ResultCard({ result, elapsedMs }) {
   if (!result) return null
 
   const labelStyle  = LABEL_STYLES[result.label]  ?? LABEL_STYLES['non-toxic']
@@ -69,6 +69,7 @@ export default function ResultCard({ result }) {
 
         <span className="ml-auto text-xs text-slate-500 font-mono">
           lang: {result.language.toUpperCase()} · threshold: {result.threshold_used}
+          {elapsedMs != null && ` · ${(elapsedMs / 1000).toFixed(1)}s`}
         </span>
       </div>
 
